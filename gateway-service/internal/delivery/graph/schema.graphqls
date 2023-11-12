@@ -1,0 +1,37 @@
+type Query {
+  searchTrack(artist: String!, track: String!): Track!
+  searchAlbum(artist: String!, album: String!): [Track]!
+  getTracksByTag(id: Int!): [Track]!
+  getTracksArtist(id: Int!): [Track]!
+  getChart(chart: String!): [Track]!
+}
+
+type Track {
+  id: Int
+  name: String!
+  url: String
+  listeners: Int
+  playcount: Int
+  artist: Artist!
+  album: Album!
+  tags: [Tag]
+}
+
+type Artist {
+  id: Int
+  name: String!
+  url: String
+}
+
+type Album {
+  id: Int
+  title: String!
+  url: String
+  artist: Artist!
+}
+
+type Tag {
+  id: Int
+  name: String!
+  url: String!
+}
